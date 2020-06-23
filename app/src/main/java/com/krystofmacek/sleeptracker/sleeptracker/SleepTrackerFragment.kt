@@ -30,13 +30,17 @@ class SleepTrackerFragment : Fragment() {
             false
         )
 
+        // get the app reference
         val application: Application = requireNotNull(this.activity).application
+        // Initialize DAO for Sleep Database
         val dataSource: SleepDatabaseDao = SleepDatabase.getInstance(application).sleepDatabaseDao
+        // Initialize View Model Factory for Sleep Tracker
         val viewModelFactory = SleepTrackerViewModelFactory(dataSource, application)
+        // Initialize sleep tracker View Model using the Factory
         val sleepTrackerViewModel = ViewModelProvider(this, viewModelFactory).get(SleepTrackerViewModel::class.java)
+        // set binding view model
         binding.sleepTrackerViewModel = sleepTrackerViewModel
-
-
+        // set binding life cycle owner
         binding.lifecycleOwner = viewLifecycleOwner
 
         return binding.root
