@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="sleepQualityViewModel"
+            type="com.krystofmacek.sleeptracker.sleepquality.SleepQualityViewModel" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,7 +40,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_text"
         app:srcCompat="@drawable/ic_sleep_0"
-        android:layout_marginLeft="@dimen/margin" />
+        android:layout_marginLeft="@dimen/margin"
+        android:onClick="@{() -> sleepQualityViewModel.onSetSleepQuality(0)}"/>
 
     <ImageView
         android:id="@+id/quality_one_image"
@@ -48,7 +51,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/quality_zero_image"
         app:layout_constraintEnd_toStartOf="@+id/quality_two_image"
         app:layout_constraintStart_toEndOf="@+id/quality_zero_image"
-        app:srcCompat="@drawable/ic_sleep_1" />
+        app:srcCompat="@drawable/ic_sleep_1"
+        android:onClick="@{() -> sleepQualityViewModel.onSetSleepQuality(1)}"/>
 
     <ImageView
         android:id="@+id/quality_two_image"
@@ -60,7 +64,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/quality_one_image"
         app:srcCompat="@drawable/ic_sleep_2"
-        android:layout_marginRight="@dimen/margin" />
+        android:layout_marginRight="@dimen/margin"
+        android:onClick="@{() -> sleepQualityViewModel.onSetSleepQuality(2)}"/>
 
     <ImageView
         android:id="@+id/quality_three_image"
@@ -76,7 +81,8 @@
         app:layout_constraintTop_toBottomOf="@+id/quality_zero_image"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_sleep_3"
-        android:layout_marginLeft="@dimen/margin" />
+        android:layout_marginLeft="@dimen/margin"
+        android:onClick="@{() -> sleepQualityViewModel.onSetSleepQuality(3)}"/>
 
     <ImageView
         android:id="@+id/quality_four_image"
@@ -87,7 +93,8 @@
         app:layout_constraintEnd_toStartOf="@+id/quality_five_image"
         app:layout_constraintStart_toEndOf="@+id/quality_three_image"
         app:layout_constraintTop_toTopOf="@+id/quality_three_image"
-        app:srcCompat="@drawable/ic_sleep_4" />
+        app:srcCompat="@drawable/ic_sleep_4"
+        android:onClick="@{() -> sleepQualityViewModel.onSetSleepQuality(4)}"/>
 
     <ImageView
         android:id="@+id/quality_five_image"
@@ -100,7 +107,8 @@
         app:layout_constraintStart_toEndOf="@+id/quality_four_image"
         app:layout_constraintTop_toTopOf="@+id/quality_four_image"
         app:srcCompat="@drawable/ic_sleep_5"
-        android:layout_marginRight="@dimen/margin" />
+        android:layout_marginRight="@dimen/margin"
+        android:onClick="@{() -> sleepQualityViewModel.onSetSleepQuality(5)}"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

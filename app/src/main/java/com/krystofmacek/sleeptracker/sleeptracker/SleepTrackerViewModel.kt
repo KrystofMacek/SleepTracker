@@ -23,6 +23,8 @@ class SleepTrackerViewModel(
         _navigateToSleepQuality.value = null
     }
 
+
+
     // Coroutine job
     private var viewModelJob: Job = Job()
     // Coroutine Scope - what thread will the coroutine run on, created with Dispatcher and Job
@@ -40,6 +42,25 @@ class SleepTrackerViewModel(
 
     init {
         initializeTonight()
+    }
+
+    val startButtonVisible = Transformations.map(tonight) {
+        it == null
+    }
+    val stopButtonVisible = Transformations.map(tonight) {
+        it != null
+    }
+    val clearButtonVisible = Transformations.map(nights) {
+        it?.isNotEmpty()
+    }
+
+    private var _showSnackbarEvent = MutableLiveData<Boolean>()
+
+    val showSnackBarEvent: LiveData<Boolean>
+        get() = _showSnackbarEvent
+
+    fun doneShowingSnackbar() {
+        _showSnackbarEvent.value = false
     }
 
     private fun initializeTonight() {
@@ -101,6 +122,7 @@ class SleepTrackerViewModel(
         uiScope.launch {
             clear()
             tonight.value = null
+            _showSnackbarEvent.value = true
         }
     }
     private suspend fun clear() {
