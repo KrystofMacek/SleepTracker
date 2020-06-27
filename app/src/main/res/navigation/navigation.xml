@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_sleep_quality" >
         <action
             android:id="@+id/action_sleepQualityFragment_to_sleepTrackerFragment"
-            app:destination="@id/sleepTrackerFragment" />
+            app:destination="@id/sleepTrackerFragment"
+            app:launchSingleTop="false"
+            app:popUpToInclusive="true" />
         <argument
             android:name="sleepNightKey"
             app:argType="long" />

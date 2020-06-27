@@ -46,6 +46,6 @@ class SleepQualityFragment : Fragment() {
         })
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sleep_quality, container, false)
+        return binding.root
     }
 }

@@ -1,9 +1,9 @@
 package com.krystofmacek.sleeptracker.sleepquality
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.krystofmacek.sleeptracker.database.SleepDatabase
 import com.krystofmacek.sleeptracker.database.SleepDatabaseDao
 import kotlinx.coroutines.*
 
