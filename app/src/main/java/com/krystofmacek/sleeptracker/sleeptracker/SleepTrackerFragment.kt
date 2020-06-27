@@ -53,8 +53,11 @@ class SleepTrackerFragment : Fragment() {
         // Nights observer
         sleepTrackerViewModel.nights.observe(viewLifecycleOwner, Observer{
             // if it !=null then adapter data = it
-                it?.let {
-                adapter.data = it
+            it?.let {
+                // when a changed list is available. ListAdapter provides a method called submitList() to tell ListAdapter that a new version of the list is available.
+                // When this method is called, the ListAdapter diffs the new list against the old one
+                // and detects items that were added, removed, moved, or changed. Then the ListAdapter updates the items shown by RecyclerView.
+                adapter.submitList(it)
             }
         })
 
